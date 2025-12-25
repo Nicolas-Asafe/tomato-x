@@ -1,0 +1,24 @@
+{
+  "name": "tomato-js",
+  "version": "2.0.0",
+  "description": "just jsons",
+  "main": "./src/main.js",
+  "type": "module",
+  "scripts": {
+    "start":"node ./main.js",
+    "dev":"node --watch ./main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nicolas-Asafes/tomatojs.git"
+  },
+  "author": "Nicolas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Nicolas-Asafes/tomatojs/issues"
+  },
+  "homepage": "https://github.com/Nicolas-Asafes/tomatojs#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

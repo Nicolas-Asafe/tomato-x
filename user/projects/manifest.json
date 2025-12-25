@@ -1,0 +1,6 @@
+{
+    "port":8000,
+    "running_message":"Server running in port 8000",
+    "author":"user_crud",
+    "rendered_directory":"./src"
+}
