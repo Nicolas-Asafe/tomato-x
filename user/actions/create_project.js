@@ -44,7 +44,8 @@ export default async function createProject(nameproject = "") {
           port: 8000,
           running_message: "Server running in port 8000",
           author: nameproject,
-          rendered_directory: "./"
+          rendered_directory: "./",
+          distros:["generic"]
         },
         null,
         2

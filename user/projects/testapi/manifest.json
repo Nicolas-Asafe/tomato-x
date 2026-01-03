@@ -1,0 +1,10 @@
+{
+  "port": 8000,
+  "running_message": "Server running in port 8000",
+  "author": "testapi",
+  "rendered_directory": "./",
+  "distros": [
+    "generic"
+  ],
+  "hello_route":true
+}

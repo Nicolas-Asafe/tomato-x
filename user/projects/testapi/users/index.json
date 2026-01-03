@@ -1,0 +1,10 @@
+{
+    "base": "generic:action_responsetxt",
+    "method": "GET",
+    "status": 200,
+    "response": "generic:response_responsetxt",
+    "catch_response": "generic:catch_responsetxt",
+    "params": {
+        "message": "Olá! Bem-vindo à rota de usuários"
+    }
+}

@@ -1,7 +1,0 @@
-{
-  "port":"3000",
-  "author":"dotvinci_notes_api",
-  "running_message":"server running in 3000",
-  "hello_route":true,
-  "rendered_directory":"./"
-}
