@@ -1,8 +1,8 @@
 {
   "port": 8000,
   "running_message": "Server running in port 8000",
-  "author": "myapi",
-  "rendered_directory": "./",
+  "author": "teste",
+  "rendered_directory": "",
   "distros": [
     "generic"
   ]

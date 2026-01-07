@@ -1,0 +1,10 @@
+{
+    "base":"generic:action_responsetxt",
+    "response":"generic:response_responsetxt",
+    "catch_response":"generic:catch_responsetxt",
+    "method":"get",
+    "status":200,
+    "params": {
+        "message":"Hello,World!"
+    }
+}

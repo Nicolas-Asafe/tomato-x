@@ -82,16 +82,21 @@ export const recept_routes = async (basePath, distros = []) => {
           validateReference(content.response, distros, "response")
           validateReference(content.catch_response, distros, "catch_response")
 
-          if (!content.response && !content.catch_response) {
+          if (!content.response) {
             throw new Error(
-              `[Route ${routePath}] At least one of 'response' or 'catch_response' must be defined`
+              `[Route ${routePath}] At least one of 'response' must be defined`
+            )
+          }
+          if(!content.catch_response){
+            throw new Error(
+              `[Route ${routePath}] At least one of 'catch_response' must be defined`
             )
           }
 
           const route = new Route(
             routePath === "/" ? "/" : routePath,
-            content.method || "get",
-            content.status || 200,
+            content.method || null,
+            content.status || null,
             content.base,
             content.response || null,
             content.catch_response || null,

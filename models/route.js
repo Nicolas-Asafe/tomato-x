@@ -17,15 +17,15 @@
 export class Route {
   constructor(
     path = "/",
-    method = "get",
-    status = 200,
+    method,
+    status,
     base = null,
     response = null,
     catch_response = null,
     params = null
   ) {
     this.path = path
-    this.method = typeof method === "string" ? method.toLowerCase() : method
+    this.method = method
     this.status = status
     this.base = base
     this.response = response
@@ -118,7 +118,11 @@ export class Route {
         )
       }
     }
-
+    if (this.params == null){
+      throw new Error(
+        `[Route ${this.path}] Params must be defined`
+      )
+    }
     if (this.params !== null && this.params !== undefined) {
       const paramType = typeof this.params
       if (paramType !== "string" && paramType !== "number" && paramType !== "boolean" && paramType !== "object") {
