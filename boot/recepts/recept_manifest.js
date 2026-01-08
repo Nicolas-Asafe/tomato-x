@@ -15,6 +15,6 @@ export const recept_manifest = async (projectname) => {
     data.running_message ?? null,
     data.rendered_directory ?? null,
     data.distros ?? [],
-    data.distroconfigs ?? {}
+    data.distro_configs ?? null,
   );
 }

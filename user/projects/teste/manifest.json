@@ -3,6 +3,11 @@
   "running_message": "Server running in port 8000",
   "author": "teste",
   "rendered_directory": "",
+  "distro_configs": {
+    "generic":{
+      "test_param":"test_value"
+    }
+  },
   "distros": [
     "generic"
   ]

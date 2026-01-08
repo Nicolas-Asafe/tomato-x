@@ -11,9 +11,10 @@ import GenericResponses from "./responses/door.js"
 import GenericCatchResponses from "./catchresponses/door.js"
 import GenericParams from "./params/door.js"
 import GenericTypes from "./types/door.js"
+import GenericConfig from "./configs.js"
 
 export default class GenericBaseDoor {
-  constructor() {
+  constructor(configs = null) {
     if (!GenericBaseDoor.instance) {
       this.name = "generic"
       this.actions = new GenericActions()
@@ -21,8 +22,11 @@ export default class GenericBaseDoor {
       this.catchResponses = new GenericCatchResponses()
       this.params = new GenericParams()
       this.types = new GenericTypes()
+      this.configs = new GenericConfig(configs)
       GenericBaseDoor.instance = this
     }
+    console.log("[GenericBaseDoor] Generic distro initialized")
+    console.log("[Test Param]:", this.configs.test_param)
     return GenericBaseDoor.instance
   }
 

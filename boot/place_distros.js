@@ -17,7 +17,7 @@ export const place_distros = async (manifest) => {
   const distrosPlaced = []
 
   for (const distro of distros) {
-    distrosPlaced.push(await open_door(distro))
+    distrosPlaced.push(await open_door(distro,manifest.distro_configs))
   }
 
   return distrosPlaced

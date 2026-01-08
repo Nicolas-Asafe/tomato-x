@@ -1,8 +1,18 @@
 {
-    "name": "generic",
-    "title": "Generic Distro",
-    "description": "A generic distro for Tomato-X.",
-    "version": "1.0.0",
-    "author": "tomato-x",
-    "license": "MIT"
+  "name": "generic",
+  "title": "Generic Distro",
+  "description": "A generic distro for Tomato-X.",
+  "bases": {
+    "generic:action_responsetxt": {
+      "file": "actions/action_responsetxt.js",
+      "description": "Returns a plain text response with the provided text.",
+      
+      "params":{
+        "text":"string_value and required"
+      }
+    }
+  },
+  "version": "26.0.3",
+  "author": "tomato-x",
+  "license": "MIT"
 }

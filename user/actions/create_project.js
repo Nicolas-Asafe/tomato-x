@@ -4,20 +4,20 @@ import path from "path"
 export default async function createProject(nameproject = "") {
   try {
     if (!nameproject.trim()) {
-      throw new Error("Project name is required")
+      throw new Error("[Create project] Project name is required")
     }
  
     if (nameproject.includes("."))
-      throw new Error("Project name cannot contain '.'")
+      throw new Error("[Create project] Project name cannot contain '.'")
 
     if (nameproject.includes("/"))
-      throw new Error("Project name cannot contain '/'")
+      throw new Error("[Create project] Project name cannot contain '/'")
 
     const basePath = path.join(process.cwd(), "user","projects", nameproject)
 
     try {
       await fs.access(basePath)
-      console.log("Project detected")
+      console.log("[Create project] Project detected")
       return
     } catch {
     }

@@ -5,12 +5,12 @@
  * responses, and validators. Uses dynamic imports to allow runtime distro discovery.
  */
 
-export const open_door = async (distro) => {
+export const open_door = async (distro,configs=null) => {
   if (!distro) throw new Error("Door name is required")
   const door = await import(`../distros/${distro}/door.js`)
   if (!door?.default) {
     throw new Error(`Door module for ${distro} does not have a default export`)
   }
-  const doorOpen = new door.default()
+  const doorOpen = new door.default(configs)
   return doorOpen
 }

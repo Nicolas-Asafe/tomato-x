@@ -12,12 +12,13 @@ import { recept_manifest } from "./recepts/recept_manifest.js"
 import path from "path"
 import { place_distros } from "./place_distros.js"
 
-function createContext(req, res, route, distros) {
+function createContext(req, res, route, distros,distros_configs) {
   return {
     req,
     res,
     route,
     distros,
+    distros_configs,
     body: req.body || {},
     query: req.query || {},
     params: req.params || {},
@@ -93,9 +94,9 @@ function getCatchResponseFromDistro(distros, reference) {
   return distro.getCatchResponse(reference)
 }
 
-function createRouteHandler(route, distros) {
+function createRouteHandler(route, distros,distros_configs) {
   return async (req, res) => {
-    let ctx = createContext(req, res, route, distros)
+    let ctx = createContext(req, res, route, distros,distros_configs)
 
     try {
       const actionRef = route.base
@@ -185,7 +186,7 @@ export const init_api = async (projectname) => {
 
     routes.forEach(route => {
       const method = route.method.toLowerCase()
-      const handler = createRouteHandler(route, distros)
+      const handler = createRouteHandler(route, distros,manifest.distro_configs)
 
       app[method](route.path, handler)
 
