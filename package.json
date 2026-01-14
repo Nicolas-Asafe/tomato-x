@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Nicolas-Asafes/tomatojs#readme",
   "dependencies": {
+    "@types/express": "^5.0.6",
     "express": "^5.2.1"
   },
   "devDependencies": {
