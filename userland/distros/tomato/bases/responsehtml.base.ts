@@ -3,15 +3,18 @@ import { Base } from "../../../../core/boot/distros_tools/interfaces/baseClass.i
 import { log } from "../../../../core/shared/loggers/log.logger";
 
 export default class ResponseHtmlBase implements Base {
-    constructor(ctx: ctxEntity) {}
-    exec(ctx: ctxEntity): void {
+    public ctx: ctxEntity;
+    constructor(ctx: ctxEntity) {
+        this.ctx = ctx;
+    }
+    exec(): void {
         console.log("ResponseHtmlBase exec");
     }
-    logic(ctx: ctxEntity): log {
+    logic(): log {
         console.log("ResponseHtmlBase logic");
         return {} as log;
     }
-    parse(ctx: ctxEntity): log {
+    parse(): log {
         console.log("ResponseHtmlBase parse");
         return {} as log;
     }
