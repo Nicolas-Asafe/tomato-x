@@ -11,7 +11,5 @@ export function manifestParse(manifest:manifest){
         {name:"port",type:"number"},
         {name:"render_directory",type:"string"},   
     ]
-    const valid = validatorKeys(manifestValidKeys,manifest,"TomatoManifestParse")
-    if(valid?.ok == false) return valid;
-    return valid
+    return validatorKeys(manifestValidKeys,manifest,"TomatoManifestParse")
 }
