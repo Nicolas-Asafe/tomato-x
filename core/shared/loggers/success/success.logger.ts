@@ -1,8 +1,8 @@
 import { deepFreeze } from "../../freeze/deepFreeze.freeze";
-import { success } from "./success.entity";
+import { successEntity } from "./success.entity";
 
-export function success(success_params:success): success{
-    const finalSucess:success = {
+export function success(success_params:successEntity): successEntity{
+    const finalSucess:successEntity = {
         code:success_params.code,
         ok:true,
         details:success_params.details

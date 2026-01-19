@@ -1,11 +1,11 @@
 import { deepFreeze } from "../../freeze/deepFreeze.freeze";
-import { fail } from "./fail.entity";
+import { failEntity } from "./fail.entity";
 
-export function fail(success_params:fail): fail{
-    const finalFail:fail = {
-        code:success_params.code,
+export function fail(fail_params:failEntity): failEntity{
+    const finalFail:failEntity = {
+        code:fail_params.code,
         ok:false,
-        details:success_params.details
+        details:fail_params.details
     }
     deepFreeze(finalFail)
     return finalFail
