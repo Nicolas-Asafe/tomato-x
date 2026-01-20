@@ -1,8 +1,6 @@
 {
     "author":"dotvinci",
     "version":"1.0.0",
-    "distros":{},
-    "distros_config":{},
     "port":3000,
     "render_directory":"src"
 }

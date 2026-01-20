@@ -1,5 +1,5 @@
-import { manifest } from "../../loader/manifest/manifest.entity";
+import { manifestEntity } from "../../loader/manifest/manifest.entity";
 
 export interface userEntity {
-    manifest:manifest;
+    manifest:manifestEntity;
 }

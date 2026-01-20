@@ -14,7 +14,8 @@ export async function loadRoute(pathIndex:string,pathApiNow:string){
         method: jsonContent.method,
         base: jsonContent.base,
         params: jsonContent.params,
-        path: pathApiNow
+        path: `/${pathApiNow}`,
+        file_path:pathIndex
     }
     return success({ok:true,code:codes.ROUTE_LOADED,details:{route:route}})
 }

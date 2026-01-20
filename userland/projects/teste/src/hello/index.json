@@ -1,0 +1,10 @@
+{
+    "method": "get",
+    "base": "tomato:responsehtml.base",
+    "params": {
+        "title":"hello tomato",
+        "heading":"Nicolas",
+        "message":"hello this is tomato-x beta26.1",
+        "footer":"tomato-x 2026"
+    }
+}

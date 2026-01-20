@@ -3,7 +3,7 @@ import { fail, success } from "../loggers/logger";
 import { key } from "./key.entity";
 
 export function validatorKeys(keys: key[], dataToValid:any, where: string) {
-    if (!dataToValid || typeof dataToValid != "object" || Object.keys(dataToValid).length === 0) {
+    if (!dataToValid || typeof dataToValid != "object") {
         return fail({
             code: codes.INVALID_JSON_TO_VALIDATE,
             ok: false,

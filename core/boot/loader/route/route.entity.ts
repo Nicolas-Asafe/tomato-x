@@ -3,4 +3,5 @@ export interface routeEntity {
     path: string;
     base: string;
     params: object;
+    file_path:string
 }

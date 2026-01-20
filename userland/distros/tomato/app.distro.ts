@@ -1,7 +1,6 @@
-import { DistroApplication } from "../../../core/boot/distros_tools/decorators/distroApplication.decorator";
-import { userEntity } from "../../../core/boot/distros_tools/entitys/user.entity";
+import {TomatoEntitys,TomatoDecorators} from "tomato-contracts"
 
-@DistroApplication("tomato") 
+@TomatoDecorators.DistroApplicationDecorator("tomato")
 export default class TomatoDistroApp {
-    constructor(public readonly user:userEntity = {} as userEntity) {}
+    constructor(public readonly user:TomatoEntitys.User = {} as TomatoEntitys.User) {}
 }

@@ -1,13 +1,11 @@
 import { key } from "../../../shared/validator_keys/key.entity";
 import { validatorKeys } from "../../../shared/validator_keys/validator";
-import { manifest } from "./manifest.entity";
+import { manifestEntity } from "./manifest.entity";
 
-export function manifestParse(manifest:manifest){
+export function manifestParse(manifest:manifestEntity){
     const manifestValidKeys:key[] = [
         {name:"author",type:"string"},
         {name:"version",type:"string"},
-        {name:"distros",type:"object"},
-        {name:"distros_config",type:"object"},
         {name:"port",type:"number"},
         {name:"render_directory",type:"string"},   
     ]

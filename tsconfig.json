@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "tomato-contracts": [
+        "devtools/tomato-contracts.ts"
+      ]
+    },
+    "ignoreDeprecations":"6.0"
+  }
+}
