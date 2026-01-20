@@ -51,11 +51,11 @@ export default class ResponseHtmlBase extends TomatoBase.BaseModelClass {
   logic(): TomatoLoggers.SuccessEntity {
     let html = ``;
     html += `<html>`;
-    html += `<head><title>${this.ctx.params.title}</title></head>`;
+    html += `<head><title>${this.ctx.route.params.title}</title></head>`;
     html += `<body>`;
-    html += `<h1>${this.ctx.params.heading}</h1>`;
-    html += `<p>${this.ctx.params.message}</p>`;
-    html += `<footer><p>${this.ctx.params.footer}</p></footer>`;
+    html += `<h1>${this.ctx.route.params.heading}</h1>`;
+    html += `<p>${this.ctx.route.params.message}</p>`;
+    html += `<footer><p>${this.ctx.route.params.footer}</p></footer>`;
     html += `</body>`;
     html += `</html>`;
 
@@ -67,7 +67,7 @@ export default class ResponseHtmlBase extends TomatoBase.BaseModelClass {
   }
 
   parse(): TomatoLoggers.SuccessEntity {
-    const params = this.ctx.params;
+    const params = this.ctx.route.params;
 
     const requiredKeys: TomatoUtils.Key[] = [
       { name: "title", type: "string" },

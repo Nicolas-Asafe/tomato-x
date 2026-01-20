@@ -4,8 +4,9 @@ import { toConsole } from "../../shared/loggers/logger"
 import { useRoute } from "./useRoute.router"
 import { routeEntity } from "../loader/route/route.entity"
 import { userEntity } from "../distros_tools/entitys/user.entity"
+import { distroEntity } from "../loader/distros/distro.entity"
 
-export async function walkerRouter(app: any, renderDirPath:  string,distros: any,user:userEntity) {
+export async function walkerRouter(app: any, renderDirPath:  string,distros: distroEntity[],user:userEntity) {
     const renderDir = await fs.readdir(renderDirPath, { withFileTypes: true })
     for (const dirent of renderDir) {
         if (dirent.isDirectory()) {
