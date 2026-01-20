@@ -1,12 +1,10 @@
 {
   "name": "tomato-js",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "just jsons",
-  "main": "./src/main.js",
   "type": "module",
   "scripts": {
-    "start":"node ./main.js",
-    "dev":"node --watch ./main.js"
+    "start": "npx tsx userland/app.tomato.ts"
   },
   "repository": {
     "type": "git",
@@ -19,6 +17,12 @@
   },
   "homepage": "https://github.com/Nicolas-Asafes/tomatojs#readme",
   "dependencies": {
+    "@types/express": "^5.0.6",
     "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
   }
 }
