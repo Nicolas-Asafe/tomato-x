@@ -8,6 +8,7 @@ import { distroEntity } from "../loader/distros/distro.entity"
 
 export async function walkerRouter(app: any, renderDirPath:  string,distros: distroEntity[],user:userEntity) {
     const renderDir = await fs.readdir(renderDirPath, { withFileTypes: true })
+    const routes = []
     for (const dirent of renderDir) {
         if (dirent.isDirectory()) {
             await walkerRouter(app, `${renderDirPath}/${dirent.name}`,distros,user)
@@ -21,9 +22,11 @@ export async function walkerRouter(app: any, renderDirPath:  string,distros: dis
                 continue;
             }
             const route:routeEntity = loadRouteResponse.details.route
-            useRoute(app,route,distros,user.manifest,route.params)
+            useRoute(app,route,distros,user)
             toConsole(loadRouteResponse,"TomatoWalkerRouter",`Route loaded from ${routePath}`)
+            routes.push(route)
         }
     }
+    return routes
 }
 

@@ -1,10 +1,10 @@
 import { Application } from "express";
-import { manifest } from "../../boot/loader/manifest/manifest.entity";
+import { manifestEntity } from "../../boot/loader/manifest/manifest.entity";
 import { success, toConsole } from "../../shared/loggers/logger";
 import { codes } from "../../shared/codes";
 
-export function runHttp(manifest_api: manifest, application: Application) {
-    const manifest: manifest = manifest_api
+export function runHttp(manifest_api: manifestEntity, application: Application) {
+    const manifest: manifestEntity = manifest_api
     try {
         application.listen(manifest.port, () => {
             toConsole({ code: codes.API_LISTENING, ok: true }, "TomatoRunApi", `API listening on http://localhost:${manifest.port}`);

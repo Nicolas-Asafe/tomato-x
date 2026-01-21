@@ -5,5 +5,5 @@ import { walkerRouter } from "./walker.router";
 
 export async function renderRoutes(server:Express.Application,manifest:manifestEntity,user:userEntity,distros:distroEntity[]){
     const path = `${user.projectPath}/${manifest.render_directory}`
-    await walkerRouter(server,path,distros,user)
+    return await walkerRouter(server,path,distros,user)
 }
