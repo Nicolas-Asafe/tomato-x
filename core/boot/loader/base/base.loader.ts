@@ -21,7 +21,8 @@ export async function loadBases(location:string,distroname:string){
             parse:baseInstance.parse,
             logic:baseInstance.logic,
             location:location,
-            setCtx:baseInstance.setCtx
+            setCtx:baseInstance.setCtx,
+            keys:baseInstance.keys,
         } as baseEntity);
     }
     return bases;

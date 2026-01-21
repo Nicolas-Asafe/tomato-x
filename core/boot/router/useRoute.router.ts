@@ -17,7 +17,7 @@ export function useRoute(
         route.baseInstance.setCtx(createCtx(req,res,user.manifest,route))
         const baseExecuted:successEntity = route.baseInstance.exec()
         if (!baseExecuted.ok){ 
-            toConsole(baseExecuted,`${baseExecuted.details.where}`,`error to execute base: ${baseExecuted.details.error}`)
+            toConsole(baseExecuted,`${baseExecuted.details.where}`,`error to execute base: ${baseExecuted.details.error.message}`)
             return;
         }
         toConsole(baseExecuted,`${baseExecuted.details.where}`,`base executed: ${baseExecuted.details.message}`)

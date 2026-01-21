@@ -17,14 +17,14 @@ export function validatorKeys(keys: key[], dataToValid:any, where: string) {
             code: codes.INVALID_KEY,
             ok: false,
             details: {
-                error: { message: `The key ${key.name}<type:${key.type}> not found` }
+                error: { message: `The key '${key.name}'<type:${key.type}> not found` }
             }
         })
         if (typeof dataToValid[key.name] != key.type) return fail({
             code: codes.INVALID_KEY_TYPE,
             ok: false,
             details: {
-                error: { message: `The key ${key.name}<type:${key.type}> must be ${key.type}` }
+                error: { message: `The key '${key.name}'<type:${key.type}> must be ${key.type}` }
             }
         })
     }
@@ -34,7 +34,7 @@ export function validatorKeys(keys: key[], dataToValid:any, where: string) {
                 code: codes.INVALID_KEY,
                 ok: false,
                 details: {
-                    error: { message: `The key ${data_key} is invalid` }
+                    error: { message: `The key '${data_key}' is invalid` }
                 }
             })
         }
