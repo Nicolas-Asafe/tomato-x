@@ -13,7 +13,7 @@ export function validatorKeys(keys: key[], dataToValid:any, where: string) {
         })
     }
     for (const key of keys) {
-        if (!dataToValid[key.name]) return fail({
+        if (dataToValid[key.name] == undefined) return fail({
             code: codes.INVALID_KEY,
             ok: false,
             details: {

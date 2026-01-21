@@ -16,12 +16,13 @@ export async function walkerRouter(app: any, renderDirPath:  string,distros: dis
         if (dirent.isFile() && dirent.name=="index.json") {
             const routePath = `${renderDirPath}/${dirent.name}`
             const routeApiPath = dirent.parentPath.split("/").reverse()
-            const loadRouteResponse = await loadRoute(routePath,routeApiPath[0])
+            const loadRouteResponse = await loadRoute(routePath,routeApiPath[0],distros)
             if (!loadRouteResponse.ok) {
-                toConsole(loadRouteResponse,"TomatoWalkerRouter",`Error loading route from ${routePath}. Err: ${loadRouteResponse.details.error.message}`)
+                toConsole(loadRouteResponse,"TomatoLoadRoute",`Error loading route from ${routePath}. Err: ${loadRouteResponse.details.error.message}`)
                 continue;
             }
             const route:routeEntity = loadRouteResponse.details.route
+            console.log(route)
             useRoute(app,route,distros,user)
             toConsole(loadRouteResponse,"TomatoWalkerRouter",`Route loaded from ${routePath}`)
             routes.push(route)

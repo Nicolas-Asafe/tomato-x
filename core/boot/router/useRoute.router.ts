@@ -14,9 +14,8 @@ export function useRoute(
 ) {
     const method = route.method.toLowerCase() as keyof Express;
     app[method](route.path, (req: Request, res: Response) => {       
-        const baseClass = findBaseOfDistro(distros,route.base).details.baseClass
-        baseClass.ctx = createCtx(req,res,user.manifest,route)
-        const baseExecuted:successEntity = baseClass.exec()
+        route.baseInstance.setCtx(createCtx(req,res,user.manifest,route))
+        const baseExecuted:successEntity = route.baseInstance.exec()
         if (!baseExecuted.ok){ 
             toConsole(baseExecuted,`${baseExecuted.details.where}`,`error to execute base: ${baseExecuted.details.error}`)
             return;

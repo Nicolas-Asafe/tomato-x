@@ -1,7 +1,10 @@
+import { baseEntity } from "../base/base.entity";
+
 export interface routeEntity {
     method: string; 
     path: string;
     base: string;
     params: any;
-    file_path:string
+    file_path:string,
+    baseInstance:baseEntity
 }

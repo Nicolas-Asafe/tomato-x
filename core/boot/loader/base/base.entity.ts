@@ -6,7 +6,8 @@ export interface baseEntity {
     distro: string;
     location: string;
     ctx:ctxEntity;
-    exec(ctx:ctxEntity): void;
+    exec(): successEntity;
     parse():successEntity;
     logic():successEntity;
+    setCtx(ctx:ctxEntity):Function
 }
