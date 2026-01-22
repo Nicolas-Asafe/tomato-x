@@ -9,7 +9,6 @@ export async function loadDistro(distroname:string,user:userEntity){
     const distroModule = await import(path)
     const Distro = distroModule.default
     const instance = new Distro(user)
-    console.log(instance)
     instance.__bases = await loadBases(instance.__bases_location,distroname);
     instance.__distro_name = distroname
     return {ok:true,details:{instance:instance}} as successEntity

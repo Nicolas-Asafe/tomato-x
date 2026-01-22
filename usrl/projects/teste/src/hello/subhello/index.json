@@ -2,7 +2,6 @@
     "method": "get",
     "base": "tomato:responsejson.base",
     "params": {
-        "message":"Hello",
-        "oi":"we"
+        "message":"Hello"
     }
 }

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomato x distro</title>
+    <style>
+        .block{
+            background-color: bisque;
+            border-radius: 15px;
+            border: 1px solid burlywood;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            max-width: 500px;
+            gap: 10px;
+
+        }
+        .base_name{
+            font-weight: 600;
+            font-size: 23px;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f8f8f8;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Welcome to tomato x distro</h1>
+        <p>Nothing configurations.</p>
+    <h2>Bases:</h2>
+    <ul>
+        <li class="block">
+            <span class="base_name">responsejson</span>
+            <span class="base_use">use: 'tomato:responsejson.base'</span>
+            <span class="base_params">params: {message:string} </span>
+            <span class="base_output">output: {message:"MyMessage" date:"2026-01-22T20:07:35.754Z"}</span>
+        </li>
+    </ul>
+    </main>
+</body>
+</html>

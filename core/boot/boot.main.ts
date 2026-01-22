@@ -10,12 +10,14 @@ export async function boot(nameProject:string){
     const pathProject = `./usrl/projects/${nameProject}`
     const manifestResponse = await loadManifest(pathProject)
     const manifest:manifestEntity = manifestResponse.details.manifest
-    let user = {manifest:manifest,projectPath:pathProject,} as userEntity
+    let user = {} as userEntity
+    user["manifest"] = manifest
+    user["projectPath"] = pathProject
+    user["server"] = server
     const loadDistroResponse = await loadDistros(user)
     const distros = loadDistroResponse.details.distros
     user["distros"] = distros
     const routes = await renderRoutes(server,manifest,user,distros)
     user["routes"] = routes
     runHttp(manifest,server)
-    user["server"] = server
 }
