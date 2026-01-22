@@ -8,5 +8,6 @@ export interface userEntity {
     projectPath:string;
     routes:routeEntity[];
     distros:distroEntity[];
-    server:Application
+    server:Application;
+    global?:any;
 }
