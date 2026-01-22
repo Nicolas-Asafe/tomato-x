@@ -4,7 +4,7 @@
   "description": "just jsons",
   "type": "module",
   "scripts": {
-    "start": "npx tsx userland/app.tomato.ts"
+    "start": "npx tsx usrl/app.tomato.ts"
   },
   "repository": {
     "type": "git",

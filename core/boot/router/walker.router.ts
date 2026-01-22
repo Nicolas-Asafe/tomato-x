@@ -49,7 +49,7 @@ export async function walkerRouter(
                 continue
             }
             const route: routeEntity = loadRouteResponse.details.route
-            useRoute(app, route, distros, user)
+            useRoute(app, route, user)
             toConsole(
                 loadRouteResponse,
                 "TomatoWalkerRouter",

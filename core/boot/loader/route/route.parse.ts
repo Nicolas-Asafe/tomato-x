@@ -1,4 +1,3 @@
-import { successEntity } from "core/shared/loggers/success/success.entity"
 import { codes } from "../../../shared/codes"
 import { fail, success } from "../../../shared/loggers/logger"
 import { key } from "../../../shared/validator_keys/key.entity"

@@ -9,7 +9,6 @@ import { userEntity } from "../distros_tools/entitys/user.entity";
 export function useRoute(
     app: Express,
     route: routeEntity,
-    distros: any[],
     user: userEntity,
 ) {
     const method = route.method.toLowerCase() as keyof Express;
