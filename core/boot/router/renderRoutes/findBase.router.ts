@@ -1,7 +1,7 @@
-import { codes } from "../../shared/codes"
-import { fail } from "../../shared/loggers/logger"
-import { successEntity } from "../../shared/loggers/success/success.entity"
-import { distroEntity } from "../loader/distros/distro.entity"
+import { codes } from "../../../shared/codes"
+import { fail } from "../../../shared/loggers/logger"
+import { successEntity } from "../../../shared/loggers/success/success.entity"
+import { distroEntity } from "../../loader/distros/distro.entity"
 
 export function findBaseOfDistro(distros:distroEntity[],base:string):successEntity{
     const distroName = base.split(":")[0]

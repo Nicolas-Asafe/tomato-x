@@ -8,7 +8,9 @@ export async function parseRoute(jsonContent: routeEntity) {
     const keys: key[] = [
         { name: "method", type: "string" },
         { name: "base", type: "string" },
-        { name: "params", type: "object" }
+        { name: "params", type: "object" },
+        { name: "path", type: "string" },
+        { name: "file_path", type: "string" },
     ]
     const methodParsed = parseMethod(jsonContent)
     if (!methodParsed.ok) return methodParsed
