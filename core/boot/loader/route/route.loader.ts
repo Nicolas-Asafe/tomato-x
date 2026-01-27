@@ -2,7 +2,6 @@ import { findBaseOfDistro } from "core/boot/router/renderRoutes/findBase.router"
 import { routeEntity } from "./route.entity";
 import { parseRoute } from "./route.parse";
 import { distroEntity } from "../distros/distro.entity";
-import { ctxEntity } from "core/boot/distros_tools/entitys/ctx.entity";
 import { baseEntity } from "../base/base.entity";
 
 export async function loadRoute(json: any, pathIndex: string, distros: distroEntity[]) {
@@ -16,14 +15,9 @@ export async function loadRoute(json: any, pathIndex: string, distros: distroEnt
         file_path: pathIndex,
     } as routeEntity
 
-    const ctx = { route: route } as ctxEntity
     let baseInstance: baseEntity = base
-    baseInstance.ctx = ctx
-    baseInstance.keys = baseInstance.keys
-    
     route.baseInstance = baseInstance
-
-    route.baseInstance.parse()
+    route.baseInstance.parse(route.params)
 
     return route
 }

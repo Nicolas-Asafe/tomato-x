@@ -3,6 +3,5 @@ import { walkerRouter } from "./walker.router";
 
 export async function declareRoutes(user:userEntity){
     let path:string = `${user.projectPath}${user.manifest.render_directory}`
-    const routes = await walkerRouter(user.server,path,user.distros,user)
-    return routes
+    return  await walkerRouter(user.server,path)
 }

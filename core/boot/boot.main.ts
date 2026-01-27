@@ -8,26 +8,28 @@ import { declareRoutes } from "./router/declareRoutes/declare.routes";
 import { renderRoutes } from "./router/renderRoutes/renderRoutes.router";
 import { loadEngine } from "./loader/engine/engine.loader";
 import { engineEntity } from "./loader/engine/engine.entity";
-
 import express from "express"
+import { distroEntity } from "./loader/distros/distro.entity";
 const server = express()
 server.use(express.json())
 
 export async function boot(nameProject:string){
     let user = {} as userEntity
     const pathProject = `./usrl/projects/${nameProject}`
-    const manifestResponse = await loadManifest(pathProject)
-    const manifest:manifestEntity = manifestResponse.details.manifest
+    const manifest:manifestEntity = await loadManifest(pathProject)
     const engine:engineEntity = await loadEngine()
+    
     user.manifest = manifest
     user.engine = engine
     user.projectPath = pathProject
     user.server = server
+
     const routesDeclared:routeEntity[] = await declareRoutes(user)
     user.routes = routesDeclared
-    const loadDistroResponse = await loadDistros(user)
-    const distros = loadDistroResponse.details.distros
+
+    const distros:distroEntity[] = await loadDistros(user)
     user.distros = distros
+
     await renderRoutes(server,user,routesDeclared,distros)
     runHttp(manifest,server)
 }

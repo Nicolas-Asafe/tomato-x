@@ -1,19 +1,16 @@
-import { TomatoBase, TomatoBaseReturns, TomatoDecorators, TomatoEntitys, TomatoLoggers, TomatoUtils } from "tomato-contracts";
+import { TomatoBase, TomatoDecorators, TomatoEntitys, TomatoUtils } from "tomato-contracts";
 
 @TomatoDecorators.BaseDecorator("responsejson.base")
 export default class ResponseJson extends TomatoBase.BaseModelClass {
     constructor(ctx: TomatoEntitys.Ctx) {
-        super(ctx, "TomatoBaseResponseJson", [{ name: "message", type: "string" }] as TomatoUtils.Key[])
+        const keys:TomatoUtils.Key[] = [
+            { name: "message", type: "string" }
+        ] 
+        super(ctx, "TomatoBaseResponseJson", keys)
     }
-    exec(): TomatoLoggers.SuccessEntity {
+    exec(): void {
         this.logic()
-        return TomatoLoggers.successLogger({
-            ok: true,
-            code: TomatoUtils.Codes.BASE_EXECUTED,
-            details: {
-                message: "ResponseJson executed", where: "ResponseJsonBaseLogic"
-            } as TomatoBaseReturns.Success
-        })
+        console.log("Base responsejson executed")
     }
     logic(): void {
         this.ctx.res.status(200).json({

@@ -1,14 +1,13 @@
-import { successEntity } from "../../../shared/loggers/success/success.entity"
 import { ctxEntity } from "../entitys/ctx.entity"
-import { TomatoUtils } from "tomato-contracts"
+import { TomatoEntitys, TomatoUtils } from "tomato-contracts"
 
 export class BaseModel{
-    public exec():successEntity{return {} as successEntity}
+    public exec():void{}
     public keys:TomatoUtils.Key[] = []
     public where:string
     protected logic(){}
-    protected parse():successEntity{
-        return TomatoUtils.ValidatorKeys(this.keys, this.ctx.route.params, this.where)
+    protected parse(params:any){
+        return TomatoUtils.ValidatorKeys(this.keys, params, this.where)
     }
     public ctx:ctxEntity
     constructor(ctx:ctxEntity,where:string,keys:TomatoUtils.Key[]){

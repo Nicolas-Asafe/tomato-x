@@ -1,9 +1,7 @@
 import { routeEntity } from "../../loader/route/route.entity";
 import { Request,Response,Express, Application } from "express";
-import { successEntity } from "../../../shared/loggers/success/success.entity";
-import { toConsole } from "../../../shared/loggers/logger";
-import { createCtx } from "./createCtx.router";
 import { userEntity } from "../../distros_tools/entitys/user.entity";
+import { ctxEntity } from "core/boot/distros_tools/entitys/ctx.entity";
 
 export function useRoute(
     app: Application,
@@ -11,14 +9,10 @@ export function useRoute(
     user: userEntity,
 ) {
     const method = route.method.toLowerCase() as keyof Express;
-    app[method](route.path, (req: Request, res: Response) => {      
-        route.baseInstance.setCtx(createCtx(req,res,user.manifest,route))
-        const baseExecuted:successEntity = route.baseInstance.exec()
-        if (!baseExecuted.ok){ 
-            toConsole(baseExecuted,`${baseExecuted.details.where}`,`error to execute base: ${baseExecuted.details.error.message}`)
-            return;
-        }
-        toConsole(baseExecuted,`${baseExecuted.details.where}`,`base executed: ${baseExecuted.details.message}`)
+    app[method](route.path, (req: Request, res: Response) => {
+        const ctx:ctxEntity = {manifest:user.manifest,req,res,route}      
+        route.baseInstance.setCtx(ctx)
+        route.baseInstance.exec()
     });
 }
 

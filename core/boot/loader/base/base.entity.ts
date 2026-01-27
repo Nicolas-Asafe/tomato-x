@@ -8,7 +8,7 @@ export interface baseEntity {
     ctx:ctxEntity;
     keys:key[];
     exec():void;
-    parse():void;
+    parse(params:any):void;
     logic():void;
     setCtx(ctx:ctxEntity):Function
 }
