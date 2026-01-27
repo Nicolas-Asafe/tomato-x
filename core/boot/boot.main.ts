@@ -1,6 +1,4 @@
-import { jsonRead } from "core/shared/read/json.read";
 import { runHttp } from "../infra/http/run.http";
-import { server } from "../infra/http/server";
 import { userEntity } from "./distros_tools/entitys/user.entity";
 import { loadDistros } from "./loader/distros/distros.loader";
 import { manifestEntity } from "./loader/manifest/manifest.entity";
@@ -10,6 +8,10 @@ import { declareRoutes } from "./router/declareRoutes/declare.routes";
 import { renderRoutes } from "./router/renderRoutes/renderRoutes.router";
 import { loadEngine } from "./loader/engine/engine.loader";
 import { engineEntity } from "./loader/engine/engine.entity";
+
+import express from "express"
+const server = express()
+server.use(express.json())
 
 export async function boot(nameProject:string){
     let user = {} as userEntity
