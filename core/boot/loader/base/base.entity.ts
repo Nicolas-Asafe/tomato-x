@@ -1,5 +1,4 @@
 import { key } from "core/shared/validator_keys/key.entity";
-import { successEntity } from "../../../shared/loggers/success/success.entity";
 import { ctxEntity } from "../../distros_tools/entitys/ctx.entity";
 
 export interface baseEntity {
@@ -8,8 +7,8 @@ export interface baseEntity {
     location: string;
     ctx:ctxEntity;
     keys:key[];
-    exec(): successEntity;
-    parse():successEntity;
-    logic():successEntity;
+    exec():void;
+    parse():void;
+    logic():void;
     setCtx(ctx:ctxEntity):Function
 }

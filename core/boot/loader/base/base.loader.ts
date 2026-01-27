@@ -12,9 +12,12 @@ export async function loadBases(location:string,distroname:string){
     }
     for (const base_path of bases_path) {
         const baseModule = await import(`../../../../${location}${base_path}`);
+        if (!baseModule) throw new Error(`the base module ${base_path} not found`)
+
         const baseClass = baseModule.default;
         const baseInstance = new baseClass()
-        bases.push({
+
+        const base = {
             __name:baseInstance.__name,
             distro:distroname,
             exec:baseInstance.exec,
@@ -23,7 +26,8 @@ export async function loadBases(location:string,distroname:string){
             location:location,
             setCtx:baseInstance.setCtx,
             keys:baseInstance.keys,
-        } as baseEntity);
+        } as baseEntity
+        bases.push(base);
     }
     return bases;
 }
