@@ -2,6 +2,7 @@ import { routeEntity } from "core/boot/loader/route/route.entity";
 import { manifestEntity } from "../../loader/manifest/manifest.entity";
 import { distroEntity } from "core/boot/loader/distros/distro.entity";
 import { Application } from "express";
+import { engineEntity } from "core/boot/loader/engine/engine.entity";
 
 export interface userEntity {
     manifest:manifestEntity;
@@ -10,4 +11,5 @@ export interface userEntity {
     distros:distroEntity[];
     server:Application;
     global?:any;
+    engine:engineEntity;
 }

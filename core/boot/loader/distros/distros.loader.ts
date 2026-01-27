@@ -5,6 +5,7 @@ import { codes } from "../../../shared/codes";
 import { successEntity } from "../../../shared/loggers/success/success.entity";
 import { failEntity } from "core/shared/loggers/fail/fail.entity";
 import { toConsole } from "core/shared/loggers/logger";
+import { distroEntity } from "./distro.entity";
 
 export async function loadDistros(user: userEntity){
     const distros = []
@@ -16,7 +17,12 @@ export async function loadDistros(user: userEntity){
             toConsole(err,"TomatoDistroLoader",err.details.error)
             process.exit(0) 
         };
-        distros.push(distroInstance.details.instance);
+        const distro:distroEntity = distroInstance.details.instance;
+        if (distro.__compatibility_version != user.engine.version){
+            const err = {details:{error:`the distro ${distroname} is not compatible with user engine (${user.engine.version} != ${distro.__compatibility_version})`},code:codes.NON_COMPATIBLE_VERSION} as failEntity;
+            toConsole(err,"TomatoDistroLoader",err.details.error);
+        }
+        distros.push(distro);
     }
     return {code: codes.DISTRO_LOADED,details:{distros:distros},ok:true} as successEntity;
 }
