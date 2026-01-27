@@ -18,11 +18,11 @@ export async function loadRoute(json: any, pathIndex: string, distros: distroEnt
 
     const ctx = { route: route } as ctxEntity
     let baseInstance: baseEntity = base
-
     baseInstance.ctx = ctx
     baseInstance.keys = baseInstance.keys
-    route.baseInstance = baseInstance
     
+    route.baseInstance = baseInstance
+
     route.baseInstance.parse()
 
     return route
