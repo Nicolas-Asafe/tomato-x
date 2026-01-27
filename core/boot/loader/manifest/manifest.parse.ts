@@ -1,5 +1,5 @@
 import { key } from "../../../shared/validator_keys/key.entity";
-import { validatorKeys } from "../../../shared/validator_keys/validator";
+import { validatorOfKeys } from "../../../shared/validator_keys/validator";
 import { manifestEntity } from "./manifest.entity";
 
 export function manifestParse(manifest:manifestEntity){
@@ -9,5 +9,5 @@ export function manifestParse(manifest:manifestEntity){
         {name:"port",type:"number"},
         {name:"render_directory",type:"string"},   
     ]
-    return validatorKeys(manifestValidKeys,manifest,"TomatoManifestParse")
+    return validatorOfKeys(manifestValidKeys,manifest,"TomatoManifestParse")
 }
