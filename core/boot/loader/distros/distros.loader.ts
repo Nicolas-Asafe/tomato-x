@@ -15,12 +15,13 @@ export async function loadDistros(user: userEntity){
         if (!distroInstance.ok){
             const err = {details:{error:`the distro '${distroname}' not has a instance`,ok:false,code:codes.DISTRO_NOT_FOUND}} as failEntity;
             toConsole(err,"TomatoDistroLoader",err.details.error)
-            process.exit(0) 
+            return err;
         };
         const distro:distroEntity = distroInstance.details.instance;
         if (distro.__compatibility_version != user.engine.version){
             const err = {details:{error:`the distro ${distroname} is not compatible with user engine (${user.engine.version} != ${distro.__compatibility_version})`},code:codes.NON_COMPATIBLE_VERSION} as failEntity;
             toConsole(err,"TomatoDistroLoader",err.details.error);
+            return err;
         }
         distros.push(distro);
     }
