@@ -1,4 +1,4 @@
-import {userEntity} from "../../../distros_tools/entitys/user.entity"
+import {userEntity} from "tx/distros_tools/entitys/user.entity"
 import { loadBases } from "../../base/base.loader"
 import { verifyDistro } from "./verifyDistro.util"
 

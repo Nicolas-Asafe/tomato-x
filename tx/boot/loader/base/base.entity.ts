@@ -1,5 +1,5 @@
-import { key } from "core/shared/validator_keys/key.entity";
-import { ctxEntity } from "../../distros_tools/entitys/ctx.entity";
+import { key } from "tx/shared/validator_keys/key.entity";
+import { ctxEntity }  from "tx/distros_tools/entitys/ctx.entity";
 
 export interface baseEntity {
     __name: string;

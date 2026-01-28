@@ -1,7 +1,7 @@
-import { loadRoute } from "core/boot/loader/route/route.loader";
-import { userEntity } from "../../distros_tools/entitys/user.entity";
+import { loadRoute } from "tx/boot/loader/route/route.loader";
+import { userEntity } from "tx/distros_tools/entitys/user.entity";
 import { distroEntity } from "../../loader/distros/distro.entity";
-import { routeEntity } from "core/boot/loader/route/route.entity";
+import { routeEntity } from "tx/boot/loader/route/route.entity";
 import { useRoute } from "./useRoute.router";
 import {Application} from "express";
 

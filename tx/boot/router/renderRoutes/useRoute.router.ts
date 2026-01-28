@@ -1,7 +1,7 @@
 import { routeEntity } from "../../loader/route/route.entity";
 import { Request,Response,Express, Application } from "express";
-import { userEntity } from "../../distros_tools/entitys/user.entity";
-import { ctxEntity } from "core/boot/distros_tools/entitys/ctx.entity";
+import { userEntity } from "tx/distros_tools/entitys/user.entity";
+import { ctxEntity } from "tx/distros_tools/entitys/ctx.entity";
 
 export function useRoute(
     app: Application,

@@ -1,7 +1,7 @@
 import fs from "fs/promises"
 import path from "path"
 import { routeEntity } from "../../loader/route/route.entity"
-import { jsonRead } from "core/shared/read/json.read"
+import { jsonRead } from "tx/shared/read/json.read"
 
 export async function walkerRouter(
     app: any,

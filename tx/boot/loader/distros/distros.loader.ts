@@ -1,4 +1,4 @@
-import { userEntity } from "../../distros_tools/entitys/user.entity";
+import { userEntity } from "tx/distros_tools/entitys/user.entity";
 import fs from "fs/promises";
 import { loadDistro } from "./util/distro.loader.util";
 import { distroEntity } from "./distro.entity";

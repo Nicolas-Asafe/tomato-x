@@ -1,4 +1,4 @@
-import {TomatoEntitys,TomatoDecorators} from "tomato-contracts"
+import {TomatoEntitys,TomatoDecorators} from "../../../tomato-contracts"
 import path from "path";
 @TomatoDecorators.DistroApplicationDecorator({
     __distro_name:"tomato",

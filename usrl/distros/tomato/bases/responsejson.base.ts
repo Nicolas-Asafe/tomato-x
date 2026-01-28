@@ -1,4 +1,4 @@
-import { TomatoBase, TomatoDecorators, TomatoEntitys, TomatoUtils } from "tomato-contracts";
+import { TomatoBase, TomatoDecorators, TomatoEntitys, TomatoUtils } from "../../../../tomato-contracts";
 
 @TomatoDecorators.BaseDecorator("responsejson.base")
 export default class ResponseJson extends TomatoBase.BaseModelClass {

@@ -1,4 +1,4 @@
-import { findBaseOfDistro } from "core/boot/router/renderRoutes/findBase.router";
+import { findBaseOfDistro } from "tx/boot/router/renderRoutes/findBase.router";
 import { routeEntity } from "./route.entity";
 import { parseRoute } from "./route.parse";
 import { distroEntity } from "../distros/distro.entity";
