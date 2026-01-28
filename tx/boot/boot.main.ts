@@ -1,5 +1,5 @@
 import { runHttp } from "../infra/http/run.http";
-import { userEntity } from "./distros_tools/entitys/user.entity";
+import { userEntity } from "../distros_tools/entitys/user.entity";
 import { loadDistros } from "./loader/distros/distros.loader";
 import { manifestEntity } from "./loader/manifest/manifest.entity";
 import { loadManifest } from "./loader/manifest/manifest.loader";
