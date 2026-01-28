@@ -1,22 +1,11 @@
-// ===== CLASSES BASE =====
 import { BaseModel } from "../core/boot/distros_tools/class/base.class"
-
-// ===== ENTITIES =====
 import { manifestEntity } from "../core/boot/loader/manifest/manifest.entity"
 import { distroEntity } from "../core/boot/loader/distros/distro.entity"
 import { routeEntity } from "../core/boot/loader/route/route.entity"
 import { ctxEntity } from "../core/boot/distros_tools/entitys/ctx.entity"
 import { userEntity } from "../core/boot/distros_tools/entitys/user.entity"
-
-// ===== DECORATORS =====
 import { Base } from "../core/boot/distros_tools/decorators/base.decorator"
 import { DistroApplication } from "../core/boot/distros_tools/decorators/distroApplication.decorator"
-
-// ===== RETURNS =====
-import { baseErrorReturns } from "../core/boot/distros_tools/interfaces/baseErrorReturns.interface"
-import { baseSuccessReturns } from "../core/boot/distros_tools/interfaces/baseSuccessReturns.interface"
-
-// ===== UTILS / SHARED =====
 import { jsonRead } from "../core/shared/read/json.read"
 import { deepFreeze } from "../core/shared/freeze/deepFreeze.freeze"
 import { validatorOfKeys } from "../core/shared/validator_keys/validator"
@@ -34,32 +23,13 @@ export namespace TomatoEntitys {
   export type User = userEntity
 }
 
-/* ======================================================
-   DECORATORS
-====================================================== */
 export namespace TomatoDecorators {
   export const BaseDecorator = Base
   export const DistroApplicationDecorator = DistroApplication
 }
-
-/* ======================================================
-   BASE RETURNS (CONTRACTS)
-====================================================== */
-export namespace TomatoBaseReturns {
-  export type Success = baseSuccessReturns
-  export type Error = baseErrorReturns
-}
-
-/* ======================================================
-   BASE / CORE
-====================================================== */
 export namespace TomatoBase {
   export const BaseModelClass = BaseModel
 }
-
-/* ======================================================
-   UTILS
-====================================================== */
 export namespace TomatoUtils {
   export const readJson = jsonRead
   export const freeze = deepFreeze

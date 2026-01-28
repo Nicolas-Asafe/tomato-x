@@ -7,7 +7,8 @@ export function manifestParse(manifest:manifestEntity){
         {name:"author",type:"string"},
         {name:"version",type:"string"},
         {name:"port",type:"number"},
-        {name:"render_directory",type:"string"},   
+        {name:"render_directory",type:"string"},
+        {name:"logProject",type:"boolean"}
     ]
-    return validatorOfKeys(manifestValidKeys,manifest,"TomatoManifestParse")
+    validatorOfKeys(manifestValidKeys,manifest,"TomatoManifestParse")
 }
