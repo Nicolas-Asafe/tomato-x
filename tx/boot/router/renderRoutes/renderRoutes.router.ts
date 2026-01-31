@@ -5,11 +5,11 @@ import { routeEntity } from "tx/boot/loader/route/route.entity";
 import { useRoute } from "./useRoute.router";
 import {Application} from "express";
 
-export async function renderRoutes(server:Application,user:userEntity,routesDeclared:routeEntity[],distros:distroEntity[]){
+export function renderRoutes(server:Application,user:userEntity,routesDeclared:routeEntity[],distros:distroEntity[]){
     const routes = routesDeclared
-    routes.forEach(async (r) => {
-     const route = await loadRoute(r,r.file_path,distros)
-     console.log(`route loaded: [${route.method.toUpperCase()}] ${route.path}`)
+    routes.forEach( (r) => {
+     const route = loadRoute(r,r.file_path,distros)
+     process.stdout.write(`route loaded: [${route.method.toUpperCase()}] ${route.path}.\n`)
      useRoute(server,route,user)
     })
 }

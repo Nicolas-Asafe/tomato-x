@@ -14,7 +14,7 @@ export async function loadDistros(user: userEntity){
             `the distro ${distroname} is not compatible with user engine (${user.engine.version} != ${distro.__compatibility_version})`
         )
         distros.push(distro);
-        console.log(`distro '${distroname}' loaded successfully.`)
+        process.stdout.write(`distro [${distroname}] loaded.\n`)
     }
     return distros
 }

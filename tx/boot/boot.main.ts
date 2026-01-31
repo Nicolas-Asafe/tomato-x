@@ -51,5 +51,5 @@ export async function boot(nameProject: string) {
     const end = process.hrtime.bigint() 
     const ms = Number(end - start) / 1_000_000
 
-    console.log(`boot time: ${ms.toFixed(2)} ms`)
+    console.log(`boot time: ${ms.toFixed(2)} ms.`)
 }

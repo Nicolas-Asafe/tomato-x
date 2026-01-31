@@ -1,14 +1,15 @@
-import { distroEntity } from "../../loader/distros/distro.entity"
+import { distroEntity } from "tx/boot/loader/distros/distro.entity";
 
-export function findBaseOfDistro(distros:distroEntity[],base:string){
-    const distroName = base.split(":")[0]
-    const baseName = base.split(":")[1]
+export function findBaseOfDistro(distros: distroEntity[], base: string) {
+    const [distroName, baseName] = base.split(":");
 
-    const distroInstace = distros.find(d=>d.__distro_name == distroName)
-    if (!distroInstace) throw new Error(`the distro '${distroName}' not exists`)
+    const distroMap = new Map(distros.map(d => [d.__distro_name, d]));
+    const distroInstance = distroMap.get(distroName);
+    if (!distroInstance) throw new Error(`The distro '${distroName}' does not exist`);
 
-    const baseClass = distroInstace.__bases.find(b=>b.__name == baseName)
-    if (!baseClass) throw new Error(`the base '${base}' not exists`)
-        
-    return baseClass
+    const baseMap = new Map(distroInstance.__bases.map(b => [b.__name, b]));
+    const baseClass = baseMap.get(baseName);
+    if (!baseClass) throw new Error(`The base '${base}' does not exist`);
+
+    return baseClass;
 }

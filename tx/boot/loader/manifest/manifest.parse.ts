@@ -3,7 +3,7 @@ import { validatorOfKeys } from "../../../shared/validator_keys/validator";
 import { manifestEntity } from "./manifest.entity";
 
 export function manifestParse(manifest:manifestEntity){
-    const manifestValidKeys:key[] = [
+    const manifestValidKeys:readonly key[] = [
         {name:"author",type:"string"},
         {name:"version",type:"string"},
         {name:"port",type:"number"},
