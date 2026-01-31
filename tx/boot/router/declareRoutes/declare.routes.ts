@@ -1,4 +1,4 @@
-import { userEntity } from "core/boot/distros_tools/entitys/user.entity";
+import { userEntity } from "tx/distros_tools/entitys/user.entity";
 import { walkerRouter } from "./walker.router";
 
 export async function declareRoutes(user:userEntity){

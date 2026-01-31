@@ -2,7 +2,7 @@ import {TomatoEntitys,TomatoDecorators} from "../../../tomato-contracts"
 import path from "path";
 @TomatoDecorators.DistroApplicationDecorator({
     __distro_name:"tomato",
-    __compatibility_version:"26.2.2.2"
+    __compatibility_version:"26.2.2.4"
     ,__version:"1.0.0"
 })
 export default class TomatoDistroApp {

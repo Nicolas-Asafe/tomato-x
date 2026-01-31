@@ -1,3 +1,6 @@
+import { baseEntity } from "./base.entity"
+import fs from "fs/promises"
+
 export async function loadBases(
   location: string,
   distroname: string

@@ -9,6 +9,5 @@ export async function loadManifest(pathProject: string) {
 
     const manifestJson = await jsonRead(manifestPath);
     manifestParse(manifestJson);
-    Object.freeze(manifestJson);
     return manifestJson
 }

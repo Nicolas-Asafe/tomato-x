@@ -34,13 +34,9 @@ export async function walkerRouter(
             const routeApiPath = relativeDir.replace(/\\/g, "/")
             const routeJson = await (await jsonRead(currentPath))
 
-            const route = {
-                method: routeJson.method,
-                base: routeJson.base,
-                params: routeJson.params,
-                file_path: `${currentPath}`,
-                path: `${routeApiPath}`,
-            } as routeEntity
+            const route:routeEntity = routeJson;
+            route.file_path= `${currentPath}`
+            route.path= `${routeApiPath}`
             routes.push(route)
 
         }
