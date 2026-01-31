@@ -1,26 +1,37 @@
-import { key } from "../../../shared/validator_keys/key.entity"
-import { validatorOfKeys } from "../../../shared/validator_keys/validator"
-import { routeEntity } from "./route.entity"
+const ROUTE_KEYS: readonly key[] = [
+  { name: "method", type: "string" },
+  { name: "base", type: "string" },
+  { name: "params", type: "object" },
+  { name: "path", type: "string" },
+  { name: "file_path", type: "string" },
+]
 
-export async function parseRoute(jsonContent: routeEntity) {
-    const keys: key[] = [
-        { name: "method", type: "string" },
-        { name: "base", type: "string" },
-        { name: "params", type: "object" },
-        { name: "path", type: "string" },
-        { name: "file_path", type: "string" },
-    ]
-    parseMethod(jsonContent)
-    if (!jsonContent.base.includes(":") || !jsonContent.base.endsWith(".base")) throw new SyntaxError(
-        "Base must have this format: '<distro>:<basename>.base'"
-    )
-    return validatorOfKeys(keys, jsonContent, "TomatoParseRoute")
+const METHODS: Record<string, 1> = {
+  get: 1,
+  post: 1,
+  put: 1,
+  patch: 1,
+  options: 1,
+  delete: 1,
 }
 
-export function parseMethod(route:routeEntity) {
-    const methodLower = route.method.toLowerCase()
-    const methods = ["get", "post", "put", "patch", "options", "delete"]
-    if (methods.find(m=>m==methodLower) == undefined) throw new SyntaxError(
-        `invalid method in route ${route.file_path} (method invalid:${route.method})`
+export function parseRoute(jsonContent: routeEntity) {
+  const m = jsonContent.method.toLowerCase()
+  if (METHODS[m] !== 1) {
+    throw new SyntaxError(
+      `invalid method in route ${jsonContent.file_path} (method invalid:${jsonContent.method})`
     )
+  }
+
+  const base = jsonContent.base
+  if (
+    base.indexOf(":") === -1 ||
+    !base.endsWith(".base")
+  ) {
+    throw new SyntaxError(
+      "Base must have this format: '<distro>:<basename>.base'"
+    )
+  }
+
+  return validatorOfKeys(ROUTE_KEYS, jsonContent, "TomatoParseRoute")
 }
