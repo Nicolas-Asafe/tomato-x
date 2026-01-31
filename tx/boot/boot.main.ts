@@ -14,8 +14,9 @@ export async function boot(nameProject: string) {
     server.use(express.json())
     const user = {} as userEntity
     const engine = await loadEngine()
+    const project = engine.projectToLoad ?? nameProject
     const pathProject =
-        `./usrl/projects/${engine.projectToLoad ?? nameProject}`
+    `./usrl/projects/${project}`
     const [manifest] = await Promise.all([
         loadManifest(pathProject),
     ])
@@ -30,7 +31,7 @@ export async function boot(nameProject: string) {
     user.routes = routesDeclared
     user.distros = distros
     if (manifest.logProject) {
-        console.log(`====================== PROJECT_${nameProject} ======================`)
+        console.log(`====================== PROJECT_${project} ======================`)
         console.log(`ENGINE= { v: '${engine.version}', nv: '${engine.name_version}' }`)
         console.log(
             "DISTROS=",
@@ -38,7 +39,7 @@ export async function boot(nameProject: string) {
         )
         console.log(
             "ROUTES=",
-            routesDeclared.map(r => ({ p: r.path, m: r.method }))
+            routesDeclared.map(r => ({ p: r.path, m: r.method, b: r.base }))
         )
         console.log(`GLOBAL= ${user.global ?? "empty"}`)
         console.log(`PROJECT PATH= ${user.projectPath}`)

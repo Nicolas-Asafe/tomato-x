@@ -1,7 +1,0 @@
-{
-    "base":"tomato:responsejson.base",
-    "method":"get",
-    "params":{
-        "message":"hi"
-    }
-}

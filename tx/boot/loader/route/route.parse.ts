@@ -3,11 +3,11 @@ import { routeEntity } from "./route.entity"
 import { validatorOfKeys } from "tx/shared/validator_keys/validator"
 
 const ROUTE_KEYS: readonly key[] = [
-  { name: "method", type: "string" },
-  { name: "base", type: "string" },
-  { name: "params", type: "object" },
-  { name: "path", type: "string" },
-  { name: "file_path", type: "string" },
+  { name: "method", type: "string",required:true },
+  { name: "base", type: "string",required:true },
+  { name: "params", type: "object" ,required:true},
+  { name: "path", type: "string",required:true },
+  { name: "file_path", type: "string",required:true },
 ]
 
 const METHODS: Record<string, 1> = {

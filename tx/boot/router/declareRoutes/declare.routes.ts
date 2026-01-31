@@ -8,7 +8,6 @@ import path from "path";
 const CACHE_DIR = "./tx/boot/router/cache";
 const CACHE_FILE = "_routes_cache.json";
 
-// cache global do sistema
 let routesCacheWatcherStarted = false;
 export async function declareRoutes(user: userEntity) {
     const renderPath = path.join(user.projectPath, user.manifest.render_directory);
