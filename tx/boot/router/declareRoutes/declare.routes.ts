@@ -1,7 +1,35 @@
 import { userEntity } from "tx/distros_tools/entitys/user.entity";
 import { walkerRouter } from "./walker.router";
+import { getOrCreateRouteCache } from "../cache/router.cache";
+import fs from "fs/promises";
+import fsWatch from "fs";
+import path from "path";
 
-export async function declareRoutes(user:userEntity){
-    let path:string = `${user.projectPath}${user.manifest.render_directory}`
-    return  await walkerRouter(user.server,path)
+const CACHE_DIR = "./tx/boot/router/cache";
+const CACHE_FILE = "_routes_cache.json";
+
+// cache global do sistema
+let routesCacheWatcherStarted = false;
+export async function declareRoutes(user: userEntity) {
+    const renderPath = path.join(user.projectPath, user.manifest.render_directory);
+
+    if (!routesCacheWatcherStarted) {
+        startRoutesWatcher(renderPath);
+        routesCacheWatcherStarted = true;
+    }
+    const routes = await getOrCreateRouteCache(CACHE_DIR, async () => {
+        return walkerRouter(user.server, renderPath);
+    });
+
+    return routes;
+}
+
+function startRoutesWatcher(dirToWatch: string) {
+    fsWatch.watch(dirToWatch, { recursive: true }, async (eventType, filename) => {
+        if (!filename) return;
+        // console.log(`[ROUTES CACHE] Change detected: ${filename}, invalidating cache`);
+        try {
+            await fs.unlink(path.join(CACHE_DIR, CACHE_FILE));
+        } catch {}
+    });
 }
