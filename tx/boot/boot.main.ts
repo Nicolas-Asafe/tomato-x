@@ -14,7 +14,6 @@ export async function boot(nameProject: string) {
     events.emit("boot","STARTING",{})
     const server: Application = express()
     server.use(express.json())
-    const user = {} as userEntity
     const engine = await loadEngine()
     const project = engine.projectToLoad ?? nameProject
     const pathProject =
@@ -22,10 +21,12 @@ export async function boot(nameProject: string) {
     const [manifest] = await Promise.all([
         loadManifest(pathProject),
     ])
-    user.manifest = manifest
-    user.engine = engine
-    user.projectPath = pathProject
-    user.server = server
+    let user = {
+        manifest:manifest,
+        engine:engine,
+        server:server,
+        projectPath:pathProject,
+    } as userEntity
     const [routesDeclared, distros] = await Promise.all([
         declareRoutes(user),
         loadDistros(user),
@@ -55,12 +56,10 @@ export async function boot(nameProject: string) {
     const ms = Number(end - start) / 1_000_000
 
     console.log(`boot time: ${ms.toFixed(2)} ms.`)
-    events.emit("boot","RUNNING",{msToLoad:ms,usr:user})
+    events.emit("boot","RUNNING",{msToLoad:ms})
     for (const sig of ["SIGINT", "SIGTERM"]) {
     process.on(sig, () => {
         events.emit("boot", "FINISH", { signal: sig })
         process.exit()
     })
-}
-
-}
+}}

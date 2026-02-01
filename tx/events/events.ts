@@ -4,29 +4,26 @@ type statusEntity =
     | "FINISH"
     | "NOTSTARTED"
     | "LOADED"
-interface event {
-    status: statusEntity,
-    name: string,
-    payload:unknown
+
+type EventState = {
+    status: statusEntity
+    payload?: unknown
 }
-const globalEvents: event[] = []
+
+const eventsState = new Map<string, EventState>()
+
 export const events = {
-    emit: (event: string, status: statusEntity,payload:unknown) => {
-        const eventIndex = globalEvents.findIndex(e => e.name == event)
-        if (eventIndex != -1) {
-            globalEvents[eventIndex].status = status
-            return;
-        }
-        globalEvents.push({name:event,status,payload})
+    getAll() {
+        return eventsState
     },
-    trash: (event: string) => {
-        const eventIndex = globalEvents.findIndex(e => e.name == event)
-        if (eventIndex != -1) {
-            globalEvents.slice(eventIndex, 1)
-        }
+    emit(event: string, status: statusEntity, payload?: unknown) {
+        eventsState.set(event, { status, payload })
     },
-    on: (event: string, status: statusEntity, func: Function) => {
-        const eventExists = globalEvents.find(e => e.name == event)
-        if (eventExists && eventExists.status == status) func(eventExists.payload);
+    on(event: string, status: statusEntity, fn: (payload?: unknown) => void) {
+        const state = eventsState.get(event)
+        if (!state) return
+        if (state.status !== status) return
+
+        fn(state.payload)
     }
 }
