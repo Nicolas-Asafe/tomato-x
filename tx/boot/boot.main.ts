@@ -18,21 +18,18 @@ export async function boot(nameProject: string) {
     const project = engine.projectToLoad ?? nameProject
     const pathProject =
     `./usrl/projects/${project}`
-    const [manifest] = await Promise.all([
-        loadManifest(pathProject),
-    ])
     let user = {
-        manifest:manifest,
         engine:engine,
         server:server,
         projectPath:pathProject,
+        render_directory:""
     } as userEntity
-    const [routesDeclared, distros] = await Promise.all([
+    const [manifest,routesDeclared, distros] = await Promise.all([
+        loadManifest(pathProject),
         declareRoutes(user),
         loadDistros(user),
     ])
-    user.routes = routesDeclared
-    user.distros = distros
+    user = {...user, routes:routesDeclared,distros:distros,manifest:manifest}
     if (manifest.logProject) {
         console.log(`====================== PROJECT_${project} ======================`)
         console.log(`ENGINE= { v: '${engine.version}', nv: '${engine.name_version}' }`)

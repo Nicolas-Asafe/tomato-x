@@ -12,4 +12,5 @@ export interface userEntity {
     server:Application;
     global?:any;
     engine:engineEntity;
+    render_directory:string
 }

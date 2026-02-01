@@ -2,6 +2,6 @@
     "base":"tomato:responsejson.base",
     "method":"get",
     "params":{
-        "message":"hello"
+        "message":"asodij"
     }
 }
