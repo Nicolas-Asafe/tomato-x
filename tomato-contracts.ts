@@ -10,7 +10,7 @@ import { jsonRead } from "tx/shared/read/json.read"
 import { deepFreeze } from "tx/shared/freeze/deepFreeze.freeze"
 import { validatorOfKeys } from "tx/shared/validator_keys/validator"
 import { key } from "tx/shared/validator_keys/key.entity"
-
+import { events } from "tx/events/events"
 
 /* ======================================================
    ENTITIES
@@ -35,4 +35,5 @@ export namespace TomatoUtils {
   export const freeze = deepFreeze
   export const ValidatorKeys = validatorOfKeys
   export type Key = key
+  export const Events = events
 }

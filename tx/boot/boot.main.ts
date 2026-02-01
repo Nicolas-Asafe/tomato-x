@@ -7,9 +7,11 @@ import { loadEngine } from "./loader/engine/engine.loader"
 import { Application } from "express"
 import express from "express"
 import { userEntity } from "../distros_tools/entitys/user.entity"
+import { events } from "tx/events/events"
 
 export async function boot(nameProject: string) {
     const start = process.hrtime.bigint() 
+    events.emit("boot","STARTING",{})
     const server: Application = express()
     server.use(express.json())
     const user = {} as userEntity
@@ -46,11 +48,19 @@ export async function boot(nameProject: string) {
         console.log("===================================================================")
     }
 
-    await renderRoutes(server, user, routesDeclared, distros)
+    renderRoutes(server, user, routesDeclared, distros)
     runHttp(manifest, server)
 
     const end = process.hrtime.bigint() 
     const ms = Number(end - start) / 1_000_000
 
     console.log(`boot time: ${ms.toFixed(2)} ms.`)
+    events.emit("boot","RUNNING",{msToLoad:ms,usr:user})
+    for (const sig of ["SIGINT", "SIGTERM"]) {
+    process.on(sig, () => {
+        events.emit("boot", "FINISH", { signal: sig })
+        process.exit()
+    })
+}
+
 }
