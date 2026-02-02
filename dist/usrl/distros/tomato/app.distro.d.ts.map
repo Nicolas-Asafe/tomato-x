@@ -1,0 +1,1 @@
+{"version":3,"file":"app.distro.d.ts","sourceRoot":"","sources":["../../../../usrl/distros/tomato/app.distro.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAC,aAAa,EAAC,MAAM,8BAA8B,CAAA;AAO/D,MAAM,CAAC,OAAO,OAAO,eAAe;aACJ,IAAI,EAAC,aAAa,CAAC,IAAI;gBAAvB,IAAI,GAAC,aAAa,CAAC,IAA+B;CAGjF"}
