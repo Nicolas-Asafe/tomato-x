@@ -1,6 +1,6 @@
-import { key } from "../../../shared/validator_keys/key.entity";
-import { validatorOfKeys } from "../../../shared/validator_keys/validator";
-import { manifestEntity } from "./manifest.entity";
+import type { key } from "../../../shared/validator_keys/key.entity.js";
+import { validatorOfKeys } from "../../../shared/validator_keys/validator.js";
+import type { manifestEntity } from "./manifest.entity.js";
 
 export function manifestParse(manifest:manifestEntity){
     const manifestValidKeys:readonly key[] = [

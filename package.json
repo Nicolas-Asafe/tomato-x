@@ -1,10 +1,13 @@
 {
   "name": "tomato-js",
-  "version": "26.2.2.4",
+  "version": "26.2.3.5",
   "description": "just jsons",
   "type": "module",
+  "main": "./dist/usrl/app.tomato.js",
   "scripts": {
-    "start": "npx tsx usrl/app.tomato.ts"
+    "dev": "node --watch .",
+    "build": "npx tsc",
+    "start":"node ."
   },
   "repository": {
     "type": "git",

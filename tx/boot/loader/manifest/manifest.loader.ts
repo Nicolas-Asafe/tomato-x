@@ -1,7 +1,7 @@
 import path from "path";
-import { jsonRead } from "../../../shared/read/json.read";
-import { manifestParse } from "./manifest.parse";
-import { verifyManifestExists } from "./utils/verifyManifestExists.utils";
+import { jsonRead } from "../../../shared/read/json.read.js";
+import { manifestParse } from "./manifest.parse.js";
+import { verifyManifestExists } from "./utils/verifyManifestExists.utils.js";
 
 export async function loadManifest(pathProject: string) {
     const manifestPath = path.join(pathProject, "manifest.json");

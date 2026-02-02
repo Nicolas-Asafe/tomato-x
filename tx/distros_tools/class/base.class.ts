@@ -1,5 +1,5 @@
-import { ctxEntity } from "../entitys/ctx.entity"
-import { TomatoUtils } from "../../../tomato-contracts"
+import type { ctxEntity } from "../entitys/ctx.entity.js"
+import { TomatoUtils } from "../../../tomato-contracts.js"
 
 export class BaseModel{
     public exec():void{}

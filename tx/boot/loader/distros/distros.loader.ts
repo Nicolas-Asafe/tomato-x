@@ -1,7 +1,7 @@
-import { userEntity } from "tx/distros_tools/entitys/user.entity";
+import type { userEntity } from "../../../distros_tools/entitys/user.entity.js";
 import fs from "fs/promises";
-import { loadDistro } from "./util/distro.loader.util";
-import { distroEntity } from "./distro.entity";
+import { loadDistro } from "./util/distro.loader.util.js";
+import type { distroEntity } from "./distro.entity.js";
 
 export async function loadDistros(user: userEntity){
     const distros = []

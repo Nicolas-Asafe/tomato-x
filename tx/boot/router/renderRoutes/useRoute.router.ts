@@ -1,8 +1,8 @@
-import { routeEntity } from "../../loader/route/route.entity";
-import { Request, Response, Express, Application } from "express";
-import { ctxEntity } from "tx/distros_tools/entitys/ctx.entity";
-import { userEntity } from "tx/distros_tools/entitys/user.entity";
-import { events } from "tx/events/events";
+import type { routeEntity } from "../../loader/route/route.entity.js";
+import type { Request, Response, Express, Application } from "express";
+import type { ctxEntity } from "../../../distros_tools/entitys/ctx.entity.js";
+import type { userEntity } from "../../../distros_tools/entitys/user.entity.js";
+import { events } from "../../../events/events.js";
 
 export function useRoute(
     app: Application,
@@ -10,7 +10,7 @@ export function useRoute(
     user: userEntity,
 ) {
     const method = route.method.toLowerCase() as keyof Express;
-    app[method](route.path, async (req: Request, res: Response) => {
+    (app as any)[method](route.path, async (req: Request, res: Response) => {
         const start = process.hrtime.bigint()
         events.emit("routeServer","STARTING",{route:route.path})
         route.baseInstance.setCtx({ manifest: user.manifest, req, res, route })

@@ -1,13 +1,13 @@
-import { runHttp } from "../infra/http/run.http"
-import { renderRoutes } from "./router/renderRoutes/renderRoutes.router"
-import { loadDistros } from "./loader/distros/distros.loader"
-import { declareRoutes } from "./router/declareRoutes/declare.routes"
-import { loadManifest } from "./loader/manifest/manifest.loader"
-import { loadEngine } from "./loader/engine/engine.loader"
-import { Application } from "express"
+import { runHttp } from "../infra/http/run.http.js"
+import { renderRoutes } from "./router/renderRoutes/renderRoutes.router.js"
+import { loadDistros } from "./loader/distros/distros.loader.js"
+import { declareRoutes } from "./router/declareRoutes/declare.routes.js"
+import { loadManifest } from "./loader/manifest/manifest.loader.js"
+import { loadEngine } from "./loader/engine/engine.loader.js"
+import type { Application } from "express"
 import express from "express"
-import { userEntity } from "../distros_tools/entitys/user.entity"
-import { events } from "tx/events/events"
+import type { userEntity } from "../distros_tools/entitys/user.entity.js"
+import { events } from "../events/events.js"
 
 export async function boot(nameProject: string) {
     const start = process.hrtime.bigint() 
@@ -35,11 +35,11 @@ export async function boot(nameProject: string) {
         console.log(`ENGINE= { v: '${engine.version}', nv: '${engine.name_version}' }`)
         console.log(
             "DISTROS=",
-            distros.map(d => ({ n: d.__distro_name, v: d.__version }))
+            distros.map((d: any) => ({ n: d.__distro_name, v: d.__version }))
         )
         console.log(
             "ROUTES=",
-            routesDeclared.map(r => ({ p: r.path, m: r.method, b: r.base }))
+            routesDeclared.map((r: any) => ({ p: r.path, m: r.method, b: r.base }))
         )
         console.log(`GLOBAL= ${user.global ?? "empty"}`)
         console.log(`PROJECT PATH= ${user.projectPath}`)

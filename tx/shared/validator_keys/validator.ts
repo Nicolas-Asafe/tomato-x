@@ -1,4 +1,4 @@
-import { key } from "./key.entity";
+import type { key } from "./key.entity.js";
 
 export function validatorOfKeys(
     keys: readonly key[],

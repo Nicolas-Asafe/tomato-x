@@ -1,6 +1,6 @@
-import { key } from "tx/shared/validator_keys/key.entity"
-import { routeEntity } from "./route.entity"
-import { validatorOfKeys } from "tx/shared/validator_keys/validator"
+import type { key } from "../../../shared/validator_keys/key.entity.js"
+import type { routeEntity } from "./route.entity.js"
+import { validatorOfKeys } from "../../../shared/validator_keys/validator.js"
 
 const ROUTE_KEYS: readonly key[] = [
   { name: "method", type: "string",required:true },

@@ -1,8 +1,8 @@
-import { findBaseOfDistro } from "tx/boot/router/renderRoutes/findBase.router"
-import { routeEntity } from "./route.entity"
-import { parseRoute } from "./route.parse"
-import { distroEntity } from "../distros/distro.entity"
-import { baseEntity } from "../base/base.entity"
+import { findBaseOfDistro } from "../../router/renderRoutes/findBase.router.js"
+import type { routeEntity } from "./route.entity.js"
+import { parseRoute } from "./route.parse.js"
+import type { distroEntity } from "../distros/distro.entity.js"
+import type { baseEntity } from "../base/base.entity.js"
 
 export function loadRoute(
   json: any,
@@ -13,7 +13,7 @@ export function loadRoute(
   json.path = "/" + json.path
   
   parseRoute(json)
-  const base: baseEntity = findBaseOfDistro(distros, json.base)
+  const base = findBaseOfDistro(distros, json.base) as baseEntity
   json.baseInstance = base
   base.parse(json.params)
 

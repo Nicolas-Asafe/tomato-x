@@ -1,4 +1,4 @@
-import { baseEntity } from "../base/base.entity";
+import type { baseEntity } from "../base/base.entity.js";
 
 export interface distroEntity {
     __distro_name: string;
