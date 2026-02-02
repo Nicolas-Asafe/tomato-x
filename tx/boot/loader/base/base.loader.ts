@@ -1,5 +1,7 @@
-import { baseEntity } from "./base.entity"
+import type { baseEntity } from "./base.entity.js"
 import fs from "fs/promises"
+import path from "path"
+import { pathToFileURL } from "url"
 
 export async function loadBases(
   location: string,
@@ -12,9 +14,10 @@ export async function loadBases(
 
   for (let i = 0; i < dir.length; i++) {
     const d = dir[i]
-    if (d.isFile() && d.name.endsWith(".base.ts")) {
+    if (d?.isFile() && d?.name.endsWith(".base.js")) {
+      const basePath = path.resolve(location, d.name)
       loaders.push(
-        import(`../../../../${location}${d.name}`).then(mod => {
+        import(pathToFileURL(basePath).href).then(mod => {
           const base: baseEntity = new mod.default()
           base.distro = distroname
           base.location = location

@@ -1,6 +1,6 @@
 import fs from "fs/promises";
 import path from "path";
-import { routeEntity } from "../../loader/route/route.entity";
+import type { routeEntity } from "../../loader/route/route.entity.js";
 
 const CACHE_FILE = "_routes_cache.json";
 
