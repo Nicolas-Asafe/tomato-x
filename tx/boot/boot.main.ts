@@ -1,19 +1,15 @@
-import { runHttp } from "../infra/http/run.http.js"
+import { runHttp, server } from "../infra/tmxhttp/run.http.js"
 import { renderRoutes } from "./router/renderRoutes/renderRoutes.router.js"
 import { loadDistros } from "./loader/distros/distros.loader.js"
 import { declareRoutes } from "./router/declareRoutes/declare.routes.js"
 import { loadManifest } from "./loader/manifest/manifest.loader.js"
 import { loadEngine } from "./loader/engine/engine.loader.js"
-import type { Application } from "express"
-import express from "express"
 import type { userEntity } from "../distros_tools/entitys/user.entity.js"
 import { events } from "../events/events.js"
 
 export async function boot(nameProject: string) {
     const start = process.hrtime.bigint() 
     events.emit("boot","STARTING",{})
-    const server: Application = express()
-    server.use(express.json())
     const engine = await loadEngine()
     const project = engine.projectToLoad ?? nameProject
     const pathProject =
@@ -46,8 +42,8 @@ export async function boot(nameProject: string) {
         console.log("===================================================================")
     }
 
-    renderRoutes(server, user, routesDeclared, distros)
-    runHttp(manifest, server)
+    renderRoutes(user, routesDeclared, distros)
+    runHttp(manifest)
 
     const end = process.hrtime.bigint() 
     const ms = Number(end - start) / 1_000_000
