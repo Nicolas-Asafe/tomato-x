@@ -25,8 +25,8 @@ export function useRoute(route: routeEntity, user: userEntity) {
       if (process.env.NODE_ENV !== "production") {
         const ms =
           Number(process.hrtime.bigint() - start) / 1_000_000;
-        console.log(
-          `request ${method} ${route.path} took ${ms.toFixed(2)}ms`
+        process.stdout.write(
+          `request ${method} ${route.path} took ${ms.toFixed(2)}ms. \n`
         );
       }
     }
