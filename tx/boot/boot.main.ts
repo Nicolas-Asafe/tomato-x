@@ -52,11 +52,6 @@ export async function boot(nameProject: string) {
     const end = process.hrtime.bigint() 
     const ms = Number(end - start) / 1_000_000
 
-    console.log(`boot time: ${ms.toFixed(2)} ms.`)
+    process.stdout.write(`boot time: ${ms.toFixed(2)}ms ${Number(ms.toFixed(2))<=21.00?":>":":<"}\n`)
     events.emit("boot","RUNNING",{msToLoad:ms})
-    for (const sig of ["SIGINT", "SIGTERM"]) {
-    process.on(sig, () => {
-        events.emit("boot", "FINISH", { signal: sig })
-        process.exit()
-    })
-}}
+}

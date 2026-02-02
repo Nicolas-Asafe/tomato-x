@@ -6,6 +6,7 @@ import type { distroEntity } from "./distro.entity.js";
 export async function loadDistros(user: userEntity){
     const distros = []
     const distroNames = await fs.readdir("./usrl/distros/")
+    let distrosLoaded = 0;
     for(const distroname of distroNames){
         
         const distro:distroEntity = await loadDistro(distroname, user);
@@ -14,7 +15,8 @@ export async function loadDistros(user: userEntity){
             `the distro ${distroname} is not compatible with user engine (${user.engine.version} != ${distro.__compatibility_version})`
         )
         distros.push(distro);
-        process.stdout.write(`distro [${distroname}] loaded.\n`)
+        distrosLoaded+=1;
     }
+    process.stdout.write(`(${distrosLoaded}) distros loaded.\n`)
     return distros
 }

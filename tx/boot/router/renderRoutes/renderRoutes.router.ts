@@ -18,5 +18,5 @@ export function renderRoutes(server:Application,user:userEntity,routesDeclared:r
      routesLoaded+=1
      events.emit("loadRoute","FINISH",{route:r})
     })
-    process.stdout.write(`(${routesLoaded}) routes loaded\n`)
+    process.stdout.write(`(${routesLoaded}) routes loaded.\n`)
 }
