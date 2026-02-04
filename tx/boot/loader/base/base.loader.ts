@@ -1,28 +1,29 @@
-import { baseEntity } from "./base.entity"
-import fs from "fs/promises"
+import type { baseEntity } from "./base.entity.js";
+import fs from "fs/promises";
+import path from "path";
+import { pathToFileURL } from "url";
 
 export async function loadBases(
   location: string,
   distroname: string
 ): Promise<baseEntity[]> {
+  const dir = await fs.readdir(location, { withFileTypes: true });
+  const loaders: Promise<baseEntity>[] = [];
 
-  const dir = await fs.readdir(location, { withFileTypes: true })
+  for (const d of dir) {
+    if (!d.isFile() || !d.name.endsWith(".base.js")) continue;
 
-  const loaders = []
+    const basePath = path.resolve(location, d.name);
 
-  for (let i = 0; i < dir.length; i++) {
-    const d = dir[i]
-    if (d.isFile() && d.name.endsWith(".base.ts")) {
-      loaders.push(
-        import(`../../../../${location}${d.name}`).then(mod => {
-          const base: baseEntity = new mod.default()
-          base.distro = distroname
-          base.location = location
-          return base
-        })
-      )
-    }
+    loaders.push(
+      import(pathToFileURL(basePath).href).then((mod) => {
+        const base: baseEntity = new mod.default();
+        base.distro = distroname;
+        base.location = location;
+        return base;
+      })
+    );
   }
 
-  return Promise.all(loaders)
+  return Promise.all(loaders);
 }

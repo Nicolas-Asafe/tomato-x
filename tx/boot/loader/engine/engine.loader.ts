@@ -1,5 +1,5 @@
-import { verifyEngineExists } from "./util/verifyEngineExists.util";
-import { jsonRead } from "tx/shared/read/json.read";
+import { verifyEngineExists } from "./util/verifyEngineExists.util.js";
+import { jsonRead } from "../../../shared/read/json.read.js";
 
 export async function loadEngine(){
     const path = "./engine_details.json"

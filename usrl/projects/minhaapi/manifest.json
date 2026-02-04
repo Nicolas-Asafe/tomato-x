@@ -1,7 +1,7 @@
 {
-    "port":3000,
-    "author":"Nicolas",
-    "logProject":false,
-    "version":"1.0",
-    "render_directory":""
+    "port":3000, 
+    "author":"com.nicolas", 
+    "version":"1.0", 
+    "render_directory":"",
+    "logProject":false 
 }

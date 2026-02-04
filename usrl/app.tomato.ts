@@ -1,5 +1,7 @@
-import { boot } from "../tx/boot/boot.main";
-async function app() {
-    await boot(null)
+import { boot } from "../tx/boot/boot.main.js";
+
+async function app(){
+    await boot()
 }
+
 app()

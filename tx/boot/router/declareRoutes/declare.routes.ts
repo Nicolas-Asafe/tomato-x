@@ -1,8 +1,8 @@
-import { userEntity } from "tx/distros_tools/entitys/user.entity";
-import { walkerRouter } from "./walker.router";
-import { getOrCreateRouteCache } from "../cache/router.cache";
+import type { userEntity } from "../../../distros_tools/entitys/user.entity.js";
+import { walkerRouter } from "./walker.router.js";
+import { getOrCreateRouteCache } from "../cache/router.cache.js";
 import fs from "fs/promises";
-import fsWatch from "fs";
+import fsWatch from "fs"; 
 import path from "path";
 
 const CACHE_DIR = "./tx/boot/router/cache";
@@ -10,7 +10,7 @@ const CACHE_FILE = "_routes_cache.json";
 
 let routesCacheWatcherStarted = false;
 export async function declareRoutes(user: userEntity) {
-    const renderPath = path.join(user.projectPath, user.manifest.render_directory);
+    const renderPath = path.join(user.projectPath, user.render_directory);
 
     if (!routesCacheWatcherStarted) {
         startRoutesWatcher(renderPath);

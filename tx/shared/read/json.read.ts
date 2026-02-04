@@ -7,6 +7,7 @@ export async function jsonRead(path: string) {
     const json = JSON.parse(file);
     return json;
   } catch(err) {
-    throw new Error(`Error to read json: ${err.message}`)
+    const message = err instanceof Error ? err.message : String(err)
+    throw new Error(`Error to read json: ${message}`)
   }
 }

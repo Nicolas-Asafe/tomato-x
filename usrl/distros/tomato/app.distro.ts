@@ -1,14 +1,9 @@
-import {TomatoEntitys,TomatoDecorators} from "../../../tomato-contracts"
-import path from "path";
+import {TomatoDecorators, type TomatoEntitys} from "../../../tomato-contracts.js"
 @TomatoDecorators.DistroApplicationDecorator({
     __distro_name:"tomato",
-    __compatibility_version:"26.2.3.5"
+    __compatibility_version:"26.2.4.5"
     ,__version:"1.0.0"
 })
 export default class TomatoDistroApp {
-    constructor(public readonly user:TomatoEntitys.User = {} as TomatoEntitys.User) {
-        user.server.get("/welcome",(req,res)=>{
-            res.sendFile(path.resolve("usrl/distros/tomato/public/welcome.html"))
-        })
-    }
+    constructor(public readonly user:TomatoEntitys.User = {} as TomatoEntitys.User) {}
 }
