@@ -1,5 +1,5 @@
 {
     "version": "26.2.4.5",
-    "name_version": "BETA",
-    "projectToLoad":"teste"
+    "name_version": "sapphire",
+    "projectToLoad":"api"
 }

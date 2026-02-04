@@ -6,7 +6,7 @@
       "params": {
         "message": "hello"
       },
-      "file_path": "usrl\\projects\\teste\\hello\\index.json",
+      "file_path": "usrl\\projects\\api\\hello\\index.json",
       "path": "hello"
     }
   ]
