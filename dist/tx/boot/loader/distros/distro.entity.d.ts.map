@@ -1,1 +1,0 @@
-{"version":3,"file":"distro.entity.d.ts","sourceRoot":"","sources":["../../../../../tx/boot/loader/distros/distro.entity.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,UAAU,EAAE,MAAM,wBAAwB,CAAC;AAEzD,MAAM,WAAW,YAAY;IACzB,aAAa,EAAE,MAAM,CAAC;IACtB,gBAAgB,EAAE,MAAM,CAAC;IACzB,OAAO,EAAE,UAAU,EAAE,CAAA;IACrB,SAAS,EAAE,MAAM,CAAC;IAClB,uBAAuB,EAAC,MAAM,CAAA;CACjC"}

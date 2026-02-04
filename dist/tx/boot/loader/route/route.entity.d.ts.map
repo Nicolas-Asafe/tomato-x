@@ -1,1 +1,0 @@
-{"version":3,"file":"route.entity.d.ts","sourceRoot":"","sources":["../../../../../tx/boot/loader/route/route.entity.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,UAAU,EAAE,MAAM,wBAAwB,CAAC;AAEzD,MAAM,WAAW,WAAW;IACxB,MAAM,EAAE,MAAM,CAAC;IACf,IAAI,EAAE,MAAM,CAAC;IACb,IAAI,EAAE,MAAM,CAAC;IACb,MAAM,EAAE,GAAG,CAAC;IACZ,SAAS,EAAC,MAAM,CAAC;IACjB,YAAY,EAAC,UAAU,CAAA;CAC1B"}
