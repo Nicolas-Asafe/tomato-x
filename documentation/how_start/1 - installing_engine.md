@@ -25,5 +25,6 @@ if you want to build, and run it in mode watch:
  ````
  npm run dev_watch
  ````
+ <img src="../../public/images/examples/log_in_terminal.png">
 
  [Understanding structure ->](./2%20-%20understanding_structure.md)

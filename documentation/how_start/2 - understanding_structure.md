@@ -4,14 +4,12 @@ the structure of tomato-x engine is separated into user land (usrl) and tomato x
 
 at the moment you just need to worry about the usrl folder.
 
-(usrl)
- - distros/tomato 
- - projects/teste/manifest.json
- - app.tomato.ts
+<img src="../../public/images/examples/structure_example.png">
 
 it is necessary to have a manifest.json file in the projects/test folder, it is an input file to define the main characteristics of your API.
 
 this is the necessary structure of a manifest.json file to define a api:
+<img src="../../public/images/examples/manifest-example.png">
 ````
 {
     "port":3000, // api port
@@ -25,6 +23,8 @@ this is the necessary structure of a manifest.json file to define a api:
 all routes were inside ./usrl/projects/yourproject/render_directory/routename/index.json
 
 this is the necessary structure of a index.json file to define a route: 
+
+<img src="../../public/images/examples/route-example.png">
 
 ````
 {

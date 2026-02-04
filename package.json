@@ -1,5 +1,5 @@
 {
-  "name": "tomato-js",
+  "name": "tomato-x",
   "version": "26.2.4.5",
   "description": "just jsons",
   "type": "module",
@@ -16,7 +16,7 @@
     "type": "git",
     "url": "git+https://github.com/Nicolas-Asafes/tomatojs.git"
   },
-  "author": "Nicolas",
+  "author": "dotvinci",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Nicolas-Asafes/tomatojs/issues"
