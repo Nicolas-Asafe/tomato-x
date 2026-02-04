@@ -1,6 +1,6 @@
 {
   "name": "tomato-js",
-  "version": "26.2.3.5",
+  "version": "26.2.4.5",
   "description": "just jsons",
   "type": "module",
   "main": "./dist/usrl/app.tomato.js",

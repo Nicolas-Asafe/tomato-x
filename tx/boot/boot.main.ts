@@ -7,11 +7,11 @@ import { loadEngine } from "./loader/engine/engine.loader.js"
 import type { userEntity } from "../distros_tools/entitys/user.entity.js"
 import { events } from "../events/events.js"
 
-export async function boot(nameProject: string) {
+export async function boot() {
     const start = process.hrtime.bigint() 
     events.emit("boot","STARTING",{})
     const engine = await loadEngine()
-    const project = engine.projectToLoad ?? nameProject
+    const project = engine.projectToLoad 
     const pathProject =
     `./usrl/projects/${project}`
     let user = {
@@ -48,6 +48,6 @@ export async function boot(nameProject: string) {
     const end = process.hrtime.bigint() 
     const ms = Number(end - start) / 1_000_000
 
-    process.stdout.write(`boot time: ${ms.toFixed(2)}ms ${Number(ms.toFixed(2))<=21.00?":>":":<"}\n`)
+    process.stdout.write(`boot time: ${ms.toFixed(2)}ms ${Number(ms.toFixed(2))<=26.00?":>":":<"}\n`)
     events.emit("boot","RUNNING",{msToLoad:ms})
 }
