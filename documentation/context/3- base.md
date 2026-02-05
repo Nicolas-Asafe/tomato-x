@@ -17,4 +17,4 @@ to select a base for your route to use, just follow this rule:
 ````
 <distroname>:<basename>.base
 ````
-(create a project)[]
+[create a project](../how_start/1%20-%20installing_engine.md)

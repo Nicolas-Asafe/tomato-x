@@ -9,15 +9,15 @@ const CACHE_DIR = "./tx/boot/router/cache";
 const CACHE_FILE = "_routes_cache.json";
 
 let routesCacheWatcherStarted = false;
-export async function declareRoutes(user: userEntity) {
-    const renderPath = path.join(user.projectPath, user.render_directory);
+export async function declareRoutes(projectPath:string,render_directory:string) {
+    const renderPath = path.join(projectPath, render_directory);
 
     if (!routesCacheWatcherStarted) {
         startRoutesWatcher(renderPath);
         routesCacheWatcherStarted = true;
     }
     const routes = await getOrCreateRouteCache(CACHE_DIR, async () => {
-        return walkerRouter(user.server, renderPath);
+        return walkerRouter(renderPath);
     });
 
     return routes;

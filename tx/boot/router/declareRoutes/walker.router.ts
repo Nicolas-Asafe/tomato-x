@@ -4,7 +4,6 @@ import type { routeEntity } from "../../loader/route/route.entity.js";
 import { jsonRead } from "../../../shared/read/json.read.js";
 
 export async function walkerRouter(
-    app: any,
     renderDirPath: string,
     renderRootPath: string = renderDirPath
 ): Promise<routeEntity[]> {
@@ -16,7 +15,7 @@ export async function walkerRouter(
         const currentPath = path.join(renderDirPath, dirent.name);
 
         if (dirent.isDirectory()) {
-            const childRoutes = await walkerRouter(app, currentPath, renderRootPath);
+            const childRoutes = await walkerRouter(currentPath, renderRootPath);
             routes.push(...childRoutes);
             return;
         }
