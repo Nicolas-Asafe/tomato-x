@@ -12,9 +12,6 @@ import { validatorOfKeys } from "./tx/shared/validator_keys/validator.js"
 import type { key } from "./tx/shared/validator_keys/key.entity.js"
 import { events } from "./tx/events/events.js"
 
-/* ======================================================
-   ENTITIES
-====================================================== */
 export namespace TomatoEntitys {
   export type Manifest = manifestEntity
   export type Route = routeEntity
