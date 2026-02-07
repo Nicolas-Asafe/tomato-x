@@ -24,14 +24,23 @@ all routes were inside ./usrl/projects/yourproject/render_directory/routename/in
 
 this is the necessary structure of a index.json file to define a route: 
 
-<img src="../../public/images/examples/route-example.png">
-
 ````
 {
     "base":"tomato:responsejson.base", // base chosen to execute
     "method":"get", // route method: 'get','post','put','delete','patch','options'
-    "params":{ // base parameters
-        "message":"hello" // base parameter responsejson <message:string> 
+    "base_config":{
+        "messageToSend":"hello", // must be a string
+        "statusCodeToSend":200  // must be a number
     }
+}
+````
+now request the route
+````
+http://localhost:3000/<nameFolderOfIndex.json>
+````
+````
+{
+  message:"hello",
+  date:"2026-02-07T20:32:52.874Z"
 }
 ````

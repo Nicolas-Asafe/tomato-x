@@ -7,8 +7,9 @@ and to configure something from your base use 'params' and put the base paramete
 {
     "base":"tomato:responsejson.base", // base of tomato distro
     "method":"get",
-    "params":{
-        "message":"hello" // base param
+    "base_config":{
+        "messageToSend":"hello", // base param
+        "statusCodeToSend":200 
     }
 }
 ````
