@@ -4,7 +4,7 @@ export interface routeEntity {
     method: string; 
     path: string;
     base: string;
-    params: any;
+    base_config: any;
     file_path:string,
     baseInstance:baseEntity
 }

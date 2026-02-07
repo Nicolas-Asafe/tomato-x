@@ -1,0 +1,14 @@
+{
+  "routes": [
+    {
+      "base": "tomato:responsejson.base",
+      "method": "get",
+      "base_config": {
+        "messageToSend": "hello",
+        "statusCodeToSend": 200
+      },
+      "file_path": "usrl\\projects\\api\\hello\\index.json",
+      "path": "hello"
+    }
+  ]
+}

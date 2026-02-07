@@ -1,4 +1,3 @@
-import type { Application } from "express"; // no remove this line!!!
 import type { manifestEntity } from "../../boot/loader/manifest/manifest.entity.js";
 import http from "http"
 

@@ -5,7 +5,7 @@ import { validatorOfKeys } from "../../../shared/validator_keys/validator.js"
 const ROUTE_KEYS: readonly key[] = [
   { name: "method", type: "string",required:true },
   { name: "base", type: "string",required:true },
-  { name: "params", type: "object" ,required:true},
+  { name: "base_config", type: "object" ,required:true},
   { name: "path", type: "string",required:true },
   { name: "file_path", type: "string",required:true },
 ]

@@ -20,7 +20,7 @@ export async function boot() {
     const manifest:manifestEntity = await loadManifest(pathProject)
 
     const renderDirectory = pathProject + manifest.render_directory;
-    const routesDeclared = await declareRoutes(pathProject,renderDirectory)
+    const routesDeclared = await declareRoutes(renderDirectory)
 
     const user:userEntity = {
         engine:engine,
